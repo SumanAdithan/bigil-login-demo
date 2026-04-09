@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import "@atlas-ds/react/css";
+@import "tailwindcss";
+
+:root {
+  --font-rubik: "Rubik", system-ui, -apple-system, sans-serif;
+  --text-primary: #1E293B;
+  --text-secondary: #475569;
+  --brand-blue: #004E91;
+  --form-field-width: 100%;
+}
+
+body {
+  font-family: var(--font-rubik);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
