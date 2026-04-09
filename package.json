@@ -10,7 +10,7 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@atlas-ds/react": "file:/home/lrs/Downloads/bigil-library/packages/react",
+        "@atlas-ds/react": "file:./packages/react",
         "@hookform/resolvers": "^5.2.2",
         "@tailwindcss/vite": "^4.2.2",
         "lucide-react": "^0.476.0",
