@@ -46,7 +46,7 @@ export const Layout = () => {
             </div>
 
             {/* RIGHT SECTION: Marketing / Identity Section (Static) */}
-            <section className="hidden lg:flex fixed right-0 top-[24px] w-[45%] h-screen justify-center">
+            <section className="hidden lg:flex fixed right-0 w-[45%] h-screen justify-center items-center">
 
                 <div className="w-[600px] px-[65px] flex flex-col items-center gap-8">
 
