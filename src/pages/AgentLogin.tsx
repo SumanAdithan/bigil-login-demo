@@ -45,7 +45,7 @@ export const AgentLogin = () => {
 
             {loginMethod === 'imd' ? <ImdLoginForm /> : <MobileLoginForm />}
 
-            <div className='mt-4 text-center text-md' style={{ color: 'var(--text-secondary)' }}>
+            <div className='mt-4 text-center text-md mb-4' style={{ color: 'var(--text-secondary)' }}>
                 Can’t login? <span onClick={() => navigate('/login/help', { state: { persona: 'agent' } })} className='font-normal text-[#004E91] cursor-pointer'>Get Help</span>
             </div>
         </div>
