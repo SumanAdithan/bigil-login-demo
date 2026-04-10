@@ -46,26 +46,31 @@ export const Layout = () => {
             </div>
 
             {/* RIGHT SECTION: Marketing / Identity Section (Static) */}
-            <section className='login-promo-section flex flex-1 flex-col items-center justify-center p-8'>
-                <img
-                    src='/login-banner.png'
-                    alt='Introducing our New Identity'
-                    className='max-h-[85vh] w-auto rounded-[24px] shadow-2xl'
-                />
+            <section className="hidden lg:flex fixed right-0 top-[24px] w-[45%] h-screen justify-center">
 
-                {/* Carousel Pagination */}
-                <div className='mt-8 flex items-center gap-2'>
-                    <div className='h-2 w-12 rounded-full' style={{ backgroundColor: 'var(--brand-blue)' }}></div>
-                    <div className='h-2 w-2 rounded-full bg-white/60'></div>
-                    <div className='h-2 w-2 rounded-full bg-white/60'></div>
-                    <div className='h-2 w-2 rounded-full bg-white/60'></div>
+                <div className="w-[600px] px-[65px] flex flex-col items-center gap-8">
+
+                    <img
+                        src="/login-banner.png"
+                        alt="Introducing our New Identity"
+                        className="max-h-[85vh] max-w-full object-contain rounded-[24px] shadow-2xl"
+                    />
+
+                    <div className="flex items-center gap-2">
+                        <div className="h-2 w-12 rounded-full" style={{ backgroundColor: 'var(--brand-blue)' }}></div>
+                        <div className="h-2 w-2 rounded-full bg-white/60"></div>
+                        <div className="h-2 w-2 rounded-full bg-white/60"></div>
+                        <div className="h-2 w-2 rounded-full bg-white/60"></div>
+                    </div>
+
                 </div>
+
             </section>
 
             {/* Application Modals */}
-            <DownloadModal 
-                isOpen={isDownloadModalOpen} 
-                onClose={() => setIsDownloadModalOpen(false)} 
+            <DownloadModal
+                isOpen={isDownloadModalOpen}
+                onClose={() => setIsDownloadModalOpen(false)}
             />
         </div>
     );
