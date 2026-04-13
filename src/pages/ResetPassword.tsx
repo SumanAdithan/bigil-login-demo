@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -75,14 +74,14 @@ export const ResetPassword = () => {
                             <li
                                 key={index}
                                 className='flex items-center gap-3 transition-colors duration-200'
-                                style={{ 
-                                    color: req.met ? '#4D7C0F' : (passwordValue.length > 0 ? '#B91C1C' : '#64748B') 
+                                style={{
+                                    color: req.met ? '#4D7C0F' : passwordValue.length > 0 ? '#B91C1C' : '#64748B',
                                 }}
                             >
                                 <Check
                                     className={`h-4 w-4 transition-transform duration-200 ${req.met ? 'scale-110 opacity-100' : 'opacity-40'}`}
-                                    style={{ 
-                                        color: req.met ? '#65A30D' : (passwordValue.length > 0 ? '#DC2626' : '#64748B') 
+                                    style={{
+                                        color: req.met ? '#65A30D' : passwordValue.length > 0 ? '#DC2626' : '#64748B',
                                     }}
                                     strokeWidth={3}
                                 />

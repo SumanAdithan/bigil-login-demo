@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Button } from '@atlas-ds/react';
+import { Button, PaginationDots } from '@atlas-ds/react';
 import { Smartphone, QrCode } from 'lucide-react';
 import { DownloadModal } from './DownloadModal';
 
@@ -46,32 +46,20 @@ export const Layout = () => {
             </div>
 
             {/* RIGHT SECTION: Marketing / Identity Section (Static) */}
-            <section className="hidden lg:flex fixed right-0 w-[45%] h-screen justify-center items-center">
-
-                <div className="w-[600px] px-[65px] flex flex-col items-center gap-8">
-
+            <section className='hidden lg:flex fixed right-0 w-[45%] h-screen justify-center items-center'>
+                <div className='w-[600px] px-[65px] flex flex-col items-center gap-8'>
                     <img
-                        src="/login-banner.png"
-                        alt="Introducing our New Identity"
-                        className="max-h-[85vh] max-w-full object-contain rounded-[24px] shadow-2xl"
+                        src='/login-banner.png'
+                        alt='Introducing our New Identity'
+                        className='max-h-[85vh] max-w-full object-contain rounded-[24px] shadow-2xl'
                     />
 
-                    <div className="flex items-center gap-2">
-                        <div className="h-2 w-12 rounded-full" style={{ backgroundColor: 'var(--brand-blue)' }}></div>
-                        <div className="h-2 w-2 rounded-full bg-white/60"></div>
-                        <div className="h-2 w-2 rounded-full bg-white/60"></div>
-                        <div className="h-2 w-2 rounded-full bg-white/60"></div>
-                    </div>
-
+                    <PaginationDots total={4} activeIndex={0} />
                 </div>
-
             </section>
 
             {/* Application Modals */}
-            <DownloadModal
-                isOpen={isDownloadModalOpen}
-                onClose={() => setIsDownloadModalOpen(false)}
-            />
+            <DownloadModal isOpen={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />
         </div>
     );
 };

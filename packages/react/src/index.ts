@@ -7,4 +7,7 @@ export * from './components/card';
 export * from './components/segmented-control';
 export * from './components/form-field';
 export * from './components/otp-input/OtpInput';
+export * from './components/modal';
+export * from './components/textarea';
+export * from './components/pagination';
 export * from './lib/utils';

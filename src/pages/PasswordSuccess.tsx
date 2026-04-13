@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@atlas-ds/react';
 import { CircleCheck } from 'lucide-react';

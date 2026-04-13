@@ -116,6 +116,67 @@ interface OtpInputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onCh
  */
 declare const OtpInput: React.ForwardRefExoticComponent<OtpInputProps & React.RefAttributes<HTMLDivElement>>;
 
+interface ModalProps {
+    children?: React.ReactNode;
+    isOpen?: boolean;
+    onClose?: () => void;
+    container?: HTMLElement;
+}
+/**
+ * Modal Component (Wrapper)
+ *
+ * High-fidelity React wrapper around the Atlas Vanilla JS Modal logic.
+ * Ensures consistent behavior (Esc key, backdrop interaction) across frameworks.
+ */
+declare function Modal({ children, isOpen, onClose, container }: ModalProps): React.ReactPortal | null;
+interface ModalOverlayProps extends React.HTMLAttributes<HTMLDivElement> {
+}
+/**
+ * ModalOverlay is part of the backdrop. Clicking it should trigger onClose.
+ * (Native JS class handles this by checking event.target === backdrop)
+ */
+declare const ModalOverlay: React.ForwardRefExoticComponent<ModalOverlayProps & React.RefAttributes<HTMLDivElement>>;
+interface ModalContentProps extends React.HTMLAttributes<HTMLDivElement> {
+    size?: 'sm' | 'md' | 'lg';
+}
+declare const ModalContent: React.ForwardRefExoticComponent<ModalContentProps & React.RefAttributes<HTMLDivElement>>;
+interface ModalHeaderProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
+    title?: React.ReactNode;
+    description?: React.ReactNode;
+    isCentered?: boolean;
+    icon?: React.ReactNode;
+    showCloseButton?: boolean;
+    hideBorder?: boolean;
+}
+declare const ModalHeader: React.ForwardRefExoticComponent<ModalHeaderProps & React.RefAttributes<HTMLElement>>;
+interface ModalBodyProps extends React.HTMLAttributes<HTMLDivElement> {
+}
+declare const ModalBody: React.ForwardRefExoticComponent<ModalBodyProps & React.RefAttributes<HTMLDivElement>>;
+interface ModalFooterProps extends React.HTMLAttributes<HTMLElement> {
+}
+declare const ModalFooter: React.ForwardRefExoticComponent<ModalFooterProps & React.RefAttributes<HTMLElement>>;
+
+interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+    label?: string;
+    helperText?: string;
+    error?: boolean | string;
+    textareaClassName?: string;
+}
+declare const TextArea: React.ForwardRefExoticComponent<TextAreaProps & React.RefAttributes<HTMLTextAreaElement>>;
+
+interface PaginationDotsProps {
+    total: number;
+    activeIndex: number;
+    onDotClick?: (index: number) => void;
+    className?: string;
+    dotClassName?: string;
+}
+/**
+ * PaginationDots component for indicating carousel or multi-step progress.
+ * Uses button elements for improved accessibility and interactive support.
+ */
+declare const PaginationDots: React.FC<PaginationDotsProps>;
+
 declare function cn(...inputs: ClassValue[]): string;
 
-export { Button, type ButtonProps, Card, CardContent, type CardContentProps, CardMedia, type CardMediaProps, type CardProps, FormField, FormFieldContext, type FormFieldProps, FormInput, type FormInputProps, FormLabel, type FormLabelProps, FormMessage, type FormMessageProps, OtpInput, type OtpInputProps, SegmentedControl, SegmentedControlContext, SegmentedControlItem, type SegmentedControlItemProps, type SegmentedControlProps, Tile, TileGroup, type TileGroupProps, type TileProps, buttonVariants, cardVariants, cn, tileVariants, useFormField, useTileGroup };
+export { Button, type ButtonProps, Card, CardContent, type CardContentProps, CardMedia, type CardMediaProps, type CardProps, FormField, FormFieldContext, type FormFieldProps, FormInput, type FormInputProps, FormLabel, type FormLabelProps, FormMessage, type FormMessageProps, Modal, ModalBody, type ModalBodyProps, ModalContent, type ModalContentProps, ModalFooter, type ModalFooterProps, ModalHeader, type ModalHeaderProps, ModalOverlay, type ModalOverlayProps, type ModalProps, OtpInput, type OtpInputProps, PaginationDots, type PaginationDotsProps, SegmentedControl, SegmentedControlContext, SegmentedControlItem, type SegmentedControlItemProps, type SegmentedControlProps, TextArea, type TextAreaProps, Tile, TileGroup, type TileGroupProps, type TileProps, buttonVariants, cardVariants, cn, tileVariants, useFormField, useTileGroup };

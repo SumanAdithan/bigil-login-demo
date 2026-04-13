@@ -1,7 +1,6 @@
-import * as React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Button } from '@atlas-ds/react';
-import { ChevronLeft, Phone } from 'lucide-react';
+import { Button, TextArea } from '@atlas-ds/react';
+import { Phone } from 'lucide-react';
 
 export const GetHelp = () => {
     const navigate = useNavigate();
@@ -56,10 +55,7 @@ export const GetHelp = () => {
                 <p className='mb-2 text-md' style={{ color: 'var(--text-secondary)' }}>
                     Send a query
                 </p>
-                <textarea
-                    className='h-32 w-full rounded-xl border border-gray-200 bg-white p-4 text-md font-normal placeholder-gray-400 outline-none transition-all duration-200 resize-none hover:bg-[#F8FAFC] hover:shadow-[0_1px_4px_0_rgba(10,13,18,0.05)] focus:border-gray-300 focus:bg-[#F1F5F9] focus:shadow-[0_1px_2px_0_rgba(10,13,18,0.05),0_0_0_4px_#F1F5F9]'
-                    placeholder='Enter a description...'
-                />
+                <TextArea className='w-full' textareaClassName='h-32' placeholder='Enter a description...' />
             </div>
         </div>
     );
@@ -71,10 +67,7 @@ export const GetHelp = () => {
                 <p className='mb-3 text-lg' style={{ color: '#475569' }}>
                     Send a query
                 </p>
-                <textarea
-                    className='h-40 w-full rounded-xl border border-gray-200 bg-white p-5 text-lg font-normal placeholder-[#94A3B8] outline-none transition-all duration-200 resize-none hover:bg-[#F8FAFC] hover:shadow-[0_1px_4px_0_rgba(10,13,18,0.05)] focus:border-gray-300 focus:bg-[#F1F5F9] focus:shadow-[0_1px_2px_0_rgba(10,13,18,0.05),0_0_0_4px_#F1F5F9]'
-                    placeholder='Enter your query or issue here...'
-                />
+                <TextArea className='w-full' textareaClassName='h-40' placeholder='Enter your query or issue here...' />
             </div>
         </div>
     );

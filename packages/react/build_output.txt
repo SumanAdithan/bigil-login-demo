@@ -1,0 +1,26 @@
+
+> @atlas-ds/react@0.0.1 build /home/lrs/Downloads/bigil-library/packages/react
+> tsup
+
+CLI Building entry: src/index.ts
+CLI Using tsconfig: tsconfig.json
+CLI tsup v8.5.1
+CLI Using tsup config: /home/lrs/Downloads/bigil-library/packages/react/tsup.config.ts
+CLI Target: esnext
+CLI Cleaning output folder
+ESM Build start
+CJS Build start
+CJS dist/index.js      20.16 KB
+CJS dist/index.css     30.55 KB
+CJS dist/index.js.map  71.53 KB
+CJS dist/index.css.map 60.36 KB
+CJS ⚡️ Build success in 285ms
+ESM dist/index.css     30.55 KB
+ESM dist/index.mjs     19.05 KB
+ESM dist/index.mjs.map 70.17 KB
+ESM dist/index.css.map 60.36 KB
+ESM ⚡️ Build success in 285ms
+DTS Build start
+DTS ⚡️ Build success in 1701ms
+DTS dist/index.d.mts 8.08 KB
+DTS dist/index.d.ts  8.08 KB

@@ -1,0 +1,16 @@
+
+> @atlas-ds/react@0.0.1 build /home/lrs/Downloads/bigil-library/packages/react
+> tsup "--filter" "@atlas-ds/react"
+
+CACError: Unknown option `--filter`
+    at Command.checkUnknownOptions (/home/lrs/Downloads/bigil-library/node_modules/.pnpm/cac@6.7.14/node_modules/cac/dist/index.js:404:17)
+    at CAC.runMatchedCommand (/home/lrs/Downloads/bigil-library/node_modules/.pnpm/cac@6.7.14/node_modules/cac/dist/index.js:602:13)
+    at main (/home/lrs/Downloads/bigil-library/node_modules/.pnpm/tsup@8.5.1_jiti@2.6.1_postcss@8.5.8_typescript@5.9.3_yaml@2.8.3/node_modules/tsup/dist/chunk-DI5BO6XE.js:148:13)
+    at Object.<anonymous> (/home/lrs/Downloads/bigil-library/node_modules/.pnpm/tsup@8.5.1_jiti@2.6.1_postcss@8.5.8_typescript@5.9.3_yaml@2.8.3/node_modules/tsup/dist/cli-default.js:12:23)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+    at node:internal/main/run_main_module:28:49
+ ELIFECYCLE  Command failed with exit code 1.

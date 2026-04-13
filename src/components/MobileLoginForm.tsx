@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm, FormProvider, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -7,10 +6,7 @@ import { Button } from '@atlas-ds/react';
 import { FormField, FormLabel, FormInput, FormMessage } from '@atlas-ds/react';
 
 const mobileSchema = z.object({
-    mobileNumber: z.union([
-        z.string().regex(/^\d{10}$/, 'Mobile Number must be exactly 10 digits'),
-        z.literal(''),
-    ]),
+    mobileNumber: z.union([z.string().regex(/^\d{10}$/, 'Mobile Number must be exactly 10 digits'), z.literal('')]),
 });
 
 type MobileSchema = z.infer<typeof mobileSchema>;

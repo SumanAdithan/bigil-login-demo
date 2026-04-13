@@ -85,7 +85,13 @@ export const VerifyOtp = () => {
             </form>
 
             <div className='mt-4 text-center text-md' style={{ color: 'var(--text-secondary)' }}>
-                Can’t login? <span onClick={() => navigate('/login/help', { state: { persona: 'agent' } })} className='font-normal text-[#004E91] cursor-pointer'>Get Help</span>
+                Can’t login?{' '}
+                <span
+                    onClick={() => navigate('/login/help', { state: { persona: 'agent' } })}
+                    className='font-normal text-[#004E91] cursor-pointer'
+                >
+                    Get Help
+                </span>
             </div>
         </div>
     );
