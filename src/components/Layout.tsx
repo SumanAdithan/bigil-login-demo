@@ -22,7 +22,7 @@ export const Layout = () => {
             setTimeout(() => {
                 setActiveIndex((prev) => (prev + 1) % banners.length);
                 setIsAnimating(false);
-            }, 200);
+            }, 500);
         }, 3000);
 
         return () => clearInterval(interval);
@@ -103,7 +103,7 @@ export const Layout = () => {
                             <img
                                 key={`current-${activeIndex}`}
                                 src={banners[activeIndex]}
-                                className="absolute h-full w-[410px] object-contain transition-transform duration-200 ease-out"
+                                className="absolute h-full w-[410px] object-contain transition-transform duration-500 ease-out"
                                 style={{
                                     transform: isAnimating
                                         ? 'translateX(-100%)'
@@ -115,7 +115,7 @@ export const Layout = () => {
                             <img
                                 key={`next-${nextIndex}`}
                                 src={banners[nextIndex]}
-                                className="absolute h-full w-[410px] object-contain transition-transform duration-200 ease-out"
+                                className="absolute h-full w-[410px] object-contain transition-transform duration-500 ease-out"
                                 style={{
                                     transform: isAnimating
                                         ? 'translateX(0)'
