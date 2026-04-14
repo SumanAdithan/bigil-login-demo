@@ -8,7 +8,19 @@ export const Layout = () => {
     const [isDownloadModalOpen, setIsDownloadModalOpen] = React.useState(false);
 
     return (
-        <div className='flex min-h-screen bg-linear-to-b from-[#B0D1FF] via-[#F0F7FF] to-[#B0D1FF]'>
+        <div
+            className="flex min-h-screen"
+            style={{
+                background: `
+      radial-gradient(circle at 55% 25%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 50%),
+      radial-gradient(circle at 65% 35%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 20%),
+      radial-gradient(circle at 85% 65%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 15%),
+      radial-gradient(circle at 95% 75%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 15%),
+      linear-gradient(180deg, #4A8DFA 0%, #7996FF 40%,  #7996FF 100%)
+    `,
+                backgroundAttachment: "fixed"
+            }}
+        >
             {/* Left Section: Functional Content */}
             <div className='z-10 flex w-full flex-col justify-between overflow-y-auto rounded-r-[40px] overflow-hidden bg-white px-8 py-10 lg:w-[55%] xl:px-20'>
                 {/* Header Logo */}
