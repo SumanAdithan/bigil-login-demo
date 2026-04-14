@@ -6,6 +6,29 @@ import { DownloadModal } from './DownloadModal';
 
 export const Layout = () => {
     const [isDownloadModalOpen, setIsDownloadModalOpen] = React.useState(false);
+    const [activeIndex, setActiveIndex] = React.useState(0);
+    const [isAnimating, setIsAnimating] = React.useState(false);
+    const banners = [
+        '/login-banner.png',
+        '/login-banner.png',
+        '/login-banner.png',
+        '/login-banner.png',
+    ];
+
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            setIsAnimating(true);
+
+            setTimeout(() => {
+                setActiveIndex((prev) => (prev + 1) % banners.length);
+                setIsAnimating(false);
+            }, 200);
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const nextIndex = (activeIndex + 1) % banners.length;
 
     return (
         <div
@@ -58,17 +81,56 @@ export const Layout = () => {
             </div>
 
             {/* RIGHT SECTION: Marketing / Identity Section (Static) */}
-            <section className='hidden lg:flex fixed right-0 w-[45%] h-screen justify-center items-center'>
+            <section className='hidden lg:flex fixed right-0 w-[45%] h-screen justify-center items-center '>
                 <div className='w-[600px] px-[65px] flex flex-col items-center gap-8'>
-                    <img
-                        src='/login-banner.png'
-                        alt='Introducing our New Identity'
-                        className='max-h-[85vh] max-w-full object-contain rounded-[24px] shadow-2xl'
-                    />
 
-                    <PaginationDots total={4} activeIndex={0} />
+                    {/* CENTERING WRAPPER */}
+                    <div className="relative  h-[85vh] flex items-center justify-center">
+
+                        {/* CARD FRAME (matches image size) */}
+                        <div className="relative w-[410px] h-full aspect-[3/4] flex items-center justify-center overflow-hidden rounded-xl">
+
+                            {/* BACKGROUND */}
+                            <div
+                                className="absolute h-full rounded-2xl"
+                                style={{
+                                    width: '430px',
+                                    background: "linear-gradient(180deg, #005DAC 0%, #004F92 100%)"
+                                }}
+                            />
+
+                            {/* CURRENT IMAGE */}
+                            <img
+                                key={`current-${activeIndex}`}
+                                src={banners[activeIndex]}
+                                className="absolute h-full w-[410px] object-contain transition-transform duration-200 ease-out"
+                                style={{
+                                    transform: isAnimating
+                                        ? 'translateX(-100%)'
+                                        : 'translateX(0)',
+                                }}
+                            />
+
+                            {/* NEXT IMAGE */}
+                            <img
+                                key={`next-${nextIndex}`}
+                                src={banners[nextIndex]}
+                                className="absolute h-full w-[410px] object-contain transition-transform duration-200 ease-out"
+                                style={{
+                                    transform: isAnimating
+                                        ? 'translateX(0)'
+                                        : 'translateX(100%)',
+                                }}
+                            />
+
+                        </div>
+
+                    </div>
+                    <PaginationDots total={banners.length} activeIndex={activeIndex} />
                 </div>
             </section>
+
+
 
             {/* Application Modals */}
             <DownloadModal isOpen={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />
