@@ -6,9 +6,46 @@ import { DownloadModal } from './DownloadModal';
 
 export const Layout = () => {
     const [isDownloadModalOpen, setIsDownloadModalOpen] = React.useState(false);
+    const [activeIndex, setActiveIndex] = React.useState(0);
+    const [isAnimating, setIsAnimating] = React.useState(false);
+    const supportEmail = 'bajajhelp@gamil.com';
+    const supportPhone = '9666845326';
+    const banners = [
+        '/login-banner.png',
+        '/login-banner.png',
+        '/login-banner.png',
+        '/login-banner.png',
+    ];
+
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            setIsAnimating(true);
+
+            setTimeout(() => {
+                setActiveIndex((prev) => (prev + 1) % banners.length);
+                setIsAnimating(false);
+            }, 500);
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const nextIndex = (activeIndex + 1) % banners.length;
 
     return (
-        <div className='flex min-h-screen bg-linear-to-b from-[#B0D1FF] via-[#F0F7FF] to-[#B0D1FF]'>
+        <div
+            className="flex min-h-screen"
+            style={{
+                background: `
+      radial-gradient(circle at 55% 25%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 50%),
+      radial-gradient(circle at 65% 35%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 20%),
+      radial-gradient(circle at 85% 65%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 15%),
+      radial-gradient(circle at 95% 75%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 15%),
+      linear-gradient(180deg, #4A8DFA 0%, #7996FF 40%,  #7996FF 100%)
+    `,
+                backgroundAttachment: "fixed"
+            }}
+        >
             {/* Left Section: Functional Content */}
             <div className='z-10 flex w-full flex-col justify-between overflow-y-auto rounded-r-[40px] overflow-hidden bg-white px-8 py-10 lg:w-[55%] xl:px-20'>
                 {/* Header Logo */}
@@ -21,7 +58,7 @@ export const Layout = () => {
 
                 {/* Bottom Bar & Footer */}
                 <div className='mx-auto w-full max-w-xl'>
-                    <div className='mb-8 flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4 shadow-sm'>
+                    <div className='mb-8 flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4'>
                         <div className='flex items-center gap-4'>
                             <div className='flex h-14 w-12 items-center justify-center rounded-xl bg-orange-50/50'>
                                 <Smartphone className='h-7 w-7 text-orange-500' />
@@ -35,28 +72,81 @@ export const Layout = () => {
                         </Button>
                     </div>
 
-                    <div className='text-center'>
-                        <p className='text-sm' style={{ color: 'var(--text-secondary)' }}>
-                            Questions? Reach us at <Button variant='link'>bajajhelp@gmail.com</Button>
-                            or
-                            <Button variant='link'>9666845326</Button>
-                        </p>
+                    <div
+                        className='flex flex-wrap items-center justify-center gap-1 text-sm text-center'
+                        style={{ color: 'var(--text-secondary)' }}
+                    >
+                        <span>Questions? Reach us at</span>
+                        <a
+                            href={`mailto:${supportEmail}`}
+                            className='leading-5 underline'
+                            style={{ color: 'var(--color-brand-primary)' }}
+                        >
+                            {supportEmail}
+                        </a>
+                        <span>or</span>
+                        <a
+                            href={`tel:${supportPhone}`}
+                            className='leading-5'
+                            style={{ color: 'var(--color-brand-primary)' }}
+                        >
+                            +91 {supportPhone}
+                        </a>
                     </div>
                 </div>
             </div>
 
             {/* RIGHT SECTION: Marketing / Identity Section (Static) */}
-            <section className='hidden lg:flex fixed right-0 w-[45%] h-screen justify-center items-center'>
+            <section className='hidden lg:flex fixed right-0 w-[45%] h-screen justify-center items-center '>
                 <div className='w-[600px] px-[65px] flex flex-col items-center gap-8'>
-                    <img
-                        src='/login-banner.png'
-                        alt='Introducing our New Identity'
-                        className='max-h-[85vh] max-w-full object-contain rounded-[24px] shadow-2xl'
-                    />
 
-                    <PaginationDots total={4} activeIndex={0} />
+                    {/* CENTERING WRAPPER */}
+                    <div className="relative  h-[85vh] flex items-center justify-center">
+
+                        {/* CARD FRAME (matches image size) */}
+                        <div className="relative w-[410px] h-full aspect-[3/4] flex items-center justify-center overflow-hidden rounded-xl">
+
+                            {/* BACKGROUND */}
+                            <div
+                                className="absolute h-full rounded-2xl"
+                                style={{
+                                    width: '430px',
+                                    background: "linear-gradient(180deg, #005DAC 0%, #004F92 100%)"
+                                }}
+                            />
+
+                            {/* CURRENT IMAGE */}
+                            <img
+                                key={`current-${activeIndex}`}
+                                src={banners[activeIndex]}
+                                className="absolute h-full w-[410px] object-contain transition-transform duration-500 ease-out"
+                                style={{
+                                    transform: isAnimating
+                                        ? 'translateX(-100%)'
+                                        : 'translateX(0)',
+                                }}
+                            />
+
+                            {/* NEXT IMAGE */}
+                            <img
+                                key={`next-${nextIndex}`}
+                                src={banners[nextIndex]}
+                                className="absolute h-full w-[410px] object-contain transition-transform duration-500 ease-out"
+                                style={{
+                                    transform: isAnimating
+                                        ? 'translateX(0)'
+                                        : 'translateX(100%)',
+                                }}
+                            />
+
+                        </div>
+
+                    </div>
+                    <PaginationDots total={banners.length} activeIndex={activeIndex} />
                 </div>
             </section>
+
+
 
             {/* Application Modals */}
             <DownloadModal isOpen={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />

@@ -53,7 +53,7 @@ export const ForgotPassword = () => {
                     <FormInput
                         {...register('email')}
                         type='email'
-                        placeholder='olivia@untitledui.com'
+                        placeholder='example@email.com'
                         className='w-full border-gray-200 py-6'
                     />
                     <FormMessage>{errors.email?.message}</FormMessage>
