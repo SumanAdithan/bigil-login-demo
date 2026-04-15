@@ -17,14 +17,14 @@ export const DesignationSelect = () => {
             </div>
 
             <TileGroup
-                className='grid w-full grid-cols-2 gap-4'
+                className='grid w-fit grid-cols-2 gap-4'
                 value=''
                 onValueChange={(val) => {
                     if (val === 'agent') navigate('/login/agent');
                     if (val === 'rm') navigate('/login/rm');
                 }}
             >
-                <Tile value='rm' className='w-[90%] h-auto py-4 rounded-xl'>
+                <Tile value='rm' className='w-[220px] h-auto py-4 rounded-xl'>
                     <div className='mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-green-50'>
                         <Briefcase className='h-7 w-7 text-green-600' />
                     </div>
@@ -39,7 +39,7 @@ export const DesignationSelect = () => {
                     </p>
                 </Tile>
 
-                <Tile value='agent' className='w-[90%] h-auto py-4 rounded-xl'>
+                <Tile value='agent' className='w-[220px] h-auto py-4 rounded-xl'>
                     <div className='mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50'>
                         <User className='h-7 w-7 text-blue-600' />
                     </div>

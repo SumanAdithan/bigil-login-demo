@@ -8,6 +8,8 @@ export const Layout = () => {
     const [isDownloadModalOpen, setIsDownloadModalOpen] = React.useState(false);
     const [activeIndex, setActiveIndex] = React.useState(0);
     const [isAnimating, setIsAnimating] = React.useState(false);
+    const supportEmail = 'bajajhelp@gamil.com';
+    const supportPhone = '9666845326';
     const banners = [
         '/login-banner.png',
         '/login-banner.png',
@@ -56,7 +58,7 @@ export const Layout = () => {
 
                 {/* Bottom Bar & Footer */}
                 <div className='mx-auto w-full max-w-xl'>
-                    <div className='mb-8 flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4 shadow-sm'>
+                    <div className='mb-8 flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4'>
                         <div className='flex items-center gap-4'>
                             <div className='flex h-14 w-12 items-center justify-center rounded-xl bg-orange-50/50'>
                                 <Smartphone className='h-7 w-7 text-orange-500' />
@@ -70,12 +72,26 @@ export const Layout = () => {
                         </Button>
                     </div>
 
-                    <div className='text-center'>
-                        <p className='text-sm' style={{ color: 'var(--text-secondary)' }}>
-                            Questions? Reach us at <Button variant='link'>bajajhelp@gmail.com</Button>
-                            or
-                            <Button variant='link'>9666845326</Button>
-                        </p>
+                    <div
+                        className='flex flex-wrap items-center justify-center gap-1 text-sm text-center'
+                        style={{ color: 'var(--text-secondary)' }}
+                    >
+                        <span>Questions? Reach us at</span>
+                        <a
+                            href={`mailto:${supportEmail}`}
+                            className='leading-5 underline'
+                            style={{ color: 'var(--color-brand-primary)' }}
+                        >
+                            {supportEmail}
+                        </a>
+                        <span>or</span>
+                        <a
+                            href={`tel:${supportPhone}`}
+                            className='leading-5'
+                            style={{ color: 'var(--color-brand-primary)' }}
+                        >
+                            +91 {supportPhone}
+                        </a>
                     </div>
                 </div>
             </div>

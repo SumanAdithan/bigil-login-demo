@@ -6,6 +6,7 @@ export const GetHelp = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const persona = location.state?.persona || 'agent';
+    const rmPhone = '+918687518745';
 
     const loginPath = persona === 'rm' ? '/login/rm' : '/login/agent';
 
@@ -17,7 +18,7 @@ export const GetHelp = () => {
                     Your Relationship Manager Details
                 </p>
 
-                <div className='flex items-center justify-between rounded-xl border border-gray-100 bg-white p-4 shadow-sm'>
+                <div className='flex items-center justify-between rounded-xl border border-gray-100 bg-white p-4'>
                     <div className='flex items-center gap-4'>
                         <img
                             src='/rm-profile.png'
@@ -38,7 +39,13 @@ export const GetHelp = () => {
                         <div className='flex h-7 w-7 items-center justify-center rounded-lg bg-blue-50'>
                             <Phone className='h-4 w-4' />
                         </div>
-                        <span className='text-sm'>+91 8687518745</span>
+                        <button
+                            type='button'
+                            className='text-sm'
+                            onClick={() => (window.location.href = `tel:${rmPhone}`)}
+                        >
+                            +91 8687518745
+                        </button>
                     </div>
                 </div>
             </div>
@@ -85,7 +92,7 @@ export const GetHelp = () => {
             <div className='mt-10 flex flex-col gap-4'>
                 <Button fullWidth>Send Query</Button>
 
-                <Button variant='secondaryGray' fullWidth onClick={() => navigate(loginPath)}>
+                <Button className='mb-10' variant='secondaryGray' fullWidth onClick={() => navigate(loginPath)}>
                     Back to Login
                 </Button>
             </div>
