@@ -45,14 +45,17 @@ export const Layout = () => {
             }}
         >
             {/* Left Section: Functional Content */}
-            <div className='z-10 flex w-full flex-col justify-between overflow-y-auto rounded-r-[40px] overflow-hidden bg-white px-8 py-10 lg:w-[55%] xl:px-20'>
-                {/* Header Logo */}
-                <div className='flex items-center'>
-                    <img src='/logo.png' alt='Bajaj General Logo' className='h-18 w-auto object-contain' />
-                </div>
+            <div className='relative z-10 flex w-full flex-col justify-between overflow-y-auto rounded-r-[40px] overflow-hidden bg-white px-8 pt-20 pb-10 lg:w-[55%] xl:px-20'>
+                <img
+                    src='/logo.png'
+                    alt='Bajaj General Logo'
+                    className='absolute top-[16px] left-[16px] h-18 w-auto object-contain z-20'
+                />
 
                 {/* DYNAMIC CONTENT AREA */}
-                <Outlet />
+                <div className="flex flex-1 items-center justify-center">
+                    <Outlet />
+                </div>
 
                 {/* Bottom Bar & Footer */}
                 <div className='mx-auto w-full max-w-xl'>
