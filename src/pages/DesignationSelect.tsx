@@ -4,6 +4,22 @@ import { Briefcase, User } from 'lucide-react';
 
 export const DesignationSelect = () => {
     const navigate = useNavigate();
+    const cards = [
+        {
+            value: 'rm',
+            title: 'Relationship Manager',
+            iconBgClass: 'bg-green-50',
+            iconClass: 'text-green-600',
+            borderClass: 'border-[#e2e8f0]',
+        },
+        {
+            value: 'agent',
+            title: 'Insurance Agent',
+            iconBgClass: 'bg-blue-50',
+            iconClass: 'text-blue-600',
+            borderClass: 'border-[#004e91]',
+        },
+    ] as const;
 
     return (
         <div className='mx-auto flex w-full max-w-2xl flex-col items-center'>
@@ -24,32 +40,29 @@ export const DesignationSelect = () => {
                     if (val === 'rm') navigate('/login/rm');
                 }}
             >
-                <Tile value='rm' className='w-[220px] h-auto py-4 rounded-xl'>
-                    <div className='mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-green-50'>
-                        <Briefcase className='h-7 w-7 text-green-600' />
-                    </div>
-                    <h3
-                        className='mb-1 text-lg font-medium text-nowrap leading-tight'
-                        style={{ color: 'var(--text-primary)' }}
+                {cards.map((card) => (
+                    <Tile
+                        key={card.value}
+                        value={card.value}
+                        className={`flex h-[140px] w-[220.5px] flex-col items-center justify-center gap-3 rounded-[8px] border p-5 ${card.borderClass}`}
                     >
-                        Relationship Manager
-                    </h3>
-                    <p className='text-sm font-normal' style={{ color: 'var(--text-secondary)' }}>
-                        Continue as RM
-                    </p>
-                </Tile>
-
-                <Tile value='agent' className='w-[220px] h-auto py-4 rounded-xl'>
-                    <div className='mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50'>
-                        <User className='h-7 w-7 text-blue-600' />
-                    </div>
-                    <h3 className='mb-1 text-lg font-medium leading-tight' style={{ color: 'var(--text-primary)' }}>
-                        Insurance Agent
-                    </h3>
-                    <p className='text-sm font-normal' style={{ color: 'var(--text-secondary)' }}>
-                        Continue as Agent
-                    </p>
-                </Tile>
+                        <div className={`flex h-11 w-11 items-center justify-center rounded-[8px] ${card.iconBgClass}`}>
+                            {card.value === 'rm' ? (
+                                <Briefcase className={`h-[18px] w-[18px] ${card.iconClass}`} />
+                            ) : (
+                                <User className={`h-[18px] w-[18px] ${card.iconClass}`} />
+                            )}
+                        </div>
+                        <div className='flex h-11 w-full items-center justify-center'>
+                            <h3
+                                className='text-center text-base font-medium leading-5'
+                                style={{ color: 'var(--text-primary)' }}
+                            >
+                                {card.title}
+                            </h3>
+                        </div>
+                    </Tile>
+                ))}
             </TileGroup>
         </div>
     );
