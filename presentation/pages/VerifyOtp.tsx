@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button, OtpInput } from '@atlas-ds/react';
 import { ChevronLeft } from 'lucide-react';
+import { authUseCases } from '../../application/useCases/auth_use_cases';
 
 export const VerifyOtp = () => {
     const navigate = useNavigate();
@@ -32,13 +33,11 @@ export const VerifyOtp = () => {
         setOtpValue(value);
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('OTP Submitted:', otpValue);
-        if (isRecovery) {
-            navigate('/login/reset-password');
-        } else {
-            navigate('/');
+        const result = await authUseCases.verifyOtp(otpValue, isRecovery);
+        if (result.success) {
+            navigate(result.redirectTo);
         }
     };
 

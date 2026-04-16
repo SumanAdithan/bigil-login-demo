@@ -1,15 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
 import { FormField, FormLabel, FormInput, FormMessage, Button } from '@atlas-ds/react';
 import { ChevronLeft } from 'lucide-react';
-
-const forgotPasswordSchema = z.object({
-    email: z.string().email('Please enter a valid email address'),
-});
-
-type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;
+import { forgotPasswordSchema } from '../../domain/validations/auth_schemas';
+import type { ForgotPasswordData } from '../../domain/entities/auth_entities';
+import { authUseCases } from '../../application/useCases/auth_use_cases';
 
 export const ForgotPassword = () => {
     const navigate = useNavigate();
@@ -17,15 +13,16 @@ export const ForgotPassword = () => {
         register,
         handleSubmit,
         formState: { errors, isValid },
-    } = useForm<ForgotPasswordFormValues>({
+    } = useForm<ForgotPasswordData>({
         resolver: zodResolver(forgotPasswordSchema),
         mode: 'onSubmit',
     });
 
-    const onSubmit = (data: ForgotPasswordFormValues) => {
-        console.log('Generate OTP for:', data.email);
-        // Mock success transition to OTP
-        navigate('/login/otp', { state: { persona: 'agent', recovery: true } });
+    const onSubmit = async (data: ForgotPasswordData) => {
+        const result = await authUseCases.generateOtp(data);
+        if (result.success) {
+            navigate(result.redirectTo, { state: result.state });
+        }
     };
 
     return (

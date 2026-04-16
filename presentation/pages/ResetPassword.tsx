@@ -1,28 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
 import { FormField, FormLabel, FormInput, FormMessage, Button } from '@atlas-ds/react';
 import { Check } from 'lucide-react';
-
-const passwordSchema = z
-    .string()
-    .min(8, 'Minimum 8 Characters')
-    .regex(/[a-z]/, 'At least one lowercase letter')
-    .regex(/[A-Z]/, 'At least one uppercase letter')
-    .regex(/[0-9]/, 'At least one number');
-
-const resetPasswordSchema = z
-    .object({
-        password: passwordSchema,
-        confirmPassword: z.string(),
-    })
-    .refine((data) => data.password === data.confirmPassword, {
-        message: 'Password do not match',
-        path: ['confirmPassword'],
-    });
-
-type ResetPasswordFormValues = z.infer<typeof resetPasswordSchema>;
+import { resetPasswordSchema } from '../../domain/validations/auth_schemas';
+import type { ResetPasswordData } from '../../domain/entities/auth_entities';
+import { authUseCases } from '../../application/useCases/auth_use_cases';
 
 export const ResetPassword = () => {
     const navigate = useNavigate();
@@ -31,7 +14,7 @@ export const ResetPassword = () => {
         handleSubmit,
         watch,
         formState: { errors, isValid },
-    } = useForm<ResetPasswordFormValues>({
+    } = useForm<ResetPasswordData>({
         resolver: zodResolver(resetPasswordSchema),
         mode: 'onChange',
     });
@@ -45,10 +28,11 @@ export const ResetPassword = () => {
         { label: 'At least one number', met: /[0-9]/.test(passwordValue) },
     ];
 
-    const onSubmit = (data: ResetPasswordFormValues) => {
-        console.log('Password Reset Successful:', data);
-        // Synchronized success transition to success page
-        navigate('/login/reset-success');
+    const onSubmit = async (data: ResetPasswordData) => {
+        const result = await authUseCases.resetPassword(data);
+        if (result.success) {
+            navigate(result.redirectTo);
+        }
     };
 
     return (
