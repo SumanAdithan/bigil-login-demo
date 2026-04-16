@@ -10,22 +10,22 @@ export const AgentLogin = () => {
     const [loginMethod, setLoginMethod] = React.useState<'imd' | 'mobile'>('imd');
 
     return (
-        <div className='mx-auto flex w-full max-w-md flex-col'>
+        <div className='mx-auto flex w-[400px] flex-col items-center justify-center pt-[20px]'>
             {/* Back Button */}
             <button
                 onClick={() => navigate('/')}
-                className='mb-8 flex items-center gap-1 text-sm transition-colors hover:text-gray-900 cursor-pointer'
+                className='mb-8 flex items-center gap-1 text-sm transition-colors hover:text-gray-900 cursor-pointer self-start'
                 style={{ color: 'var(--text-secondary)' }}
             >
                 <ChevronLeft className='h-4 w-4' /> Back
             </button>
 
-            <div className='mb-10 text-center'>
+            <div className='w-full flex flex-col items-center'>
                 <h1 className='mb-6 text-4xl font-semibold tracking-tight' style={{ color: 'var(--text-primary)' }}>
                     Enter Login Details
                 </h1>
 
-                <p className='mb-4 text-left text-md' style={{ color: 'var(--text-secondary)' }}>
+                <p className='mb-2 text-left text-md self-start' style={{ color: 'var(--text-secondary)' }}>
                     How would you like to login?
                 </p>
 
@@ -43,13 +43,14 @@ export const AgentLogin = () => {
                 </SegmentedControl>
             </div>
 
-            {loginMethod === 'imd' ? <ImdLoginForm /> : <MobileLoginForm />}
+            <div className='w-full mt-[32px]'>{loginMethod === 'imd' ? <ImdLoginForm /> : <MobileLoginForm />}</div>
 
-            <div className='mt-4 text-center text-md mb-4' style={{ color: 'var(--text-secondary)' }}>
+            {/* Footer */}
+            <div className='text-md text-center mt-2 mb-2' style={{ color: 'var(--text-secondary)' }}>
                 Can’t login?{' '}
                 <span
                     onClick={() => navigate('/login/help', { state: { persona: 'agent' } })}
-                    className='font-normal text-[#004E91] cursor-pointer'
+                    className='text-[#004E91] cursor-pointer'
                 >
                     Get Help
                 </span>
