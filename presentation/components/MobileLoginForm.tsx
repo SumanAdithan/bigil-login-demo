@@ -1,19 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm, FormProvider, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
 import { Button } from '@atlas-ds/react';
 import { FormField, FormLabel, FormInput, FormMessage } from '@atlas-ds/react';
-
-const mobileSchema = z.object({
-    mobileNumber: z.union([z.string().regex(/^\d{10}$/, 'Mobile Number must be exactly 10 digits'), z.literal('')]),
-});
-
-type MobileSchema = z.infer<typeof mobileSchema>;
+import { mobileSchema } from '../../domain/validations/auth_schemas';
+import type { MobileLoginData } from '../../domain/entities/auth_entities';
+import { authUseCases } from '../../application/useCases/auth_use_cases';
 
 export const MobileLoginForm = () => {
     const navigate = useNavigate();
-    const methods = useForm<MobileSchema>({
+    const methods = useForm<MobileLoginData>({
         resolver: zodResolver(mobileSchema),
         mode: 'onSubmit',
         reValidateMode: 'onSubmit',
@@ -25,12 +21,13 @@ export const MobileLoginForm = () => {
     const { control, handleSubmit, watch } = methods;
 
     const mobileValue = watch('mobileNumber');
-    // High-fidelity activation logic: Button only enables when exactly 10 digits are entered
     const isFormFilled = mobileValue?.length === 10;
 
-    const onSubmit = (data: MobileSchema) => {
-        console.log('Mobile Login Data:', data);
-        navigate('/login/otp');
+    const onSubmit = async (data: MobileLoginData) => {
+        const result = await authUseCases.loginWithMobile(data);
+        if (result.success) {
+            navigate(result.redirectTo);
+        }
     };
 
     return (

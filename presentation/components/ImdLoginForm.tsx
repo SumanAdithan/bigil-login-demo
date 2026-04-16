@@ -1,20 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm, FormProvider, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
 import { Button } from '@atlas-ds/react';
 import { FormField, FormLabel, FormInput, FormMessage } from '@atlas-ds/react';
-
-const imdSchema = z.object({
-    imdCode: z.union([z.string().length(7, 'IMD Code must be exactly 7 digits'), z.literal('')]),
-    password: z.union([z.string().min(1, 'Password is required'), z.literal('')]),
-});
-
-type ImdSchema = z.infer<typeof imdSchema>;
+import { imdSchema } from '../../domain/validations/auth_schemas';
+import type { ImdLoginData } from '../../domain/entities/auth_entities';
+import { authUseCases } from '../../application/useCases/auth_use_cases';
 
 export const ImdLoginForm = () => {
     const navigate = useNavigate();
-    const methods = useForm<ImdSchema>({
+    const methods = useForm<ImdLoginData>({
         resolver: zodResolver(imdSchema),
         mode: 'onSubmit',
         reValidateMode: 'onSubmit',
@@ -30,10 +25,11 @@ export const ImdLoginForm = () => {
     const passwordValue = watch('password');
     const isFormFilled = imdValue && passwordValue;
 
-    const onSubmit = (data: ImdSchema) => {
-        // Zod handles validation, but we can add manual triggers here if strictly needed
-        console.log('IMD Login Data:', data);
-        navigate('/login/otp');
+    const onSubmit = async (data: ImdLoginData) => {
+        const result = await authUseCases.loginWithImd(data);
+        if (result.success) {
+            navigate(result.redirectTo);
+        }
     };
 
     return (

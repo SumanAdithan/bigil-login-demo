@@ -1,15 +1,16 @@
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Layout } from './components/Layout';
-import { DesignationSelect } from './pages/DesignationSelect';
-import { AgentLogin } from './pages/AgentLogin';
-import { VerifyOtp } from './pages/VerifyOtp';
-import { GetHelp } from './pages/GetHelp';
-import { RmLogin } from './pages/RmLogin';
-import { ForgotPassword } from './pages/ForgotPassword';
-import { ResetPassword } from './pages/ResetPassword';
-import { PasswordSuccess } from './pages/PasswordSuccess';
+import { Layout } from '../components/Layout';
+import { DesignationSelect } from '../pages/DesignationSelect';
+import { AgentLogin } from '../pages/AgentLogin';
+import { VerifyOtp } from '../pages/VerifyOtp';
+import { GetHelp } from '../pages/GetHelp';
+import { RmLogin } from '../pages/RmLogin';
+import { ForgotPassword } from '../pages/ForgotPassword';
+import { ResetPassword } from '../pages/ResetPassword';
+import { PasswordSuccess } from '../pages/PasswordSuccess';
 
-const App = () => {
+export const AppRouter: React.FC = () => {
     return (
         <BrowserRouter>
             <Routes>
@@ -27,5 +28,3 @@ const App = () => {
         </BrowserRouter>
     );
 };
-
-export default App;
