@@ -41,7 +41,7 @@ export const ImdLoginForm = () => {
                         control={control}
                         render={({ field }) => (
                             <FormField className='w-full' isError={!!methods.formState.errors.imdCode}>
-                                <FormLabel className='mb-1.5 text-sm' style={{ color: 'var(--text-secondary)' }}>
+                                <FormLabel className='mb-[2px] text-sm' style={{ color: 'var(--text-secondary)' }}>
                                     Enter IMD code
                                 </FormLabel>
                                 <FormInput
@@ -60,7 +60,7 @@ export const ImdLoginForm = () => {
                         control={control}
                         render={({ field }) => (
                             <FormField className='w-full' isError={!!methods.formState.errors.password}>
-                                <FormLabel className='mb-1.5 text-sm' style={{ color: 'var(--text-secondary)' }}>
+                                <FormLabel className='mb-[2px] text-sm' style={{ color: 'var(--text-secondary)' }}>
                                     Enter Password
                                 </FormLabel>
                                 <FormInput
@@ -86,7 +86,7 @@ export const ImdLoginForm = () => {
                     type='submit'
                     disabled={!isFormFilled}
                     fullWidth
-                    className='mt-4 font-medium shadow-xs transition-opacity'
+                    className='mt-[32px] font-medium shadow-xs transition-opacity'
                 >
                     Proceed
                 </Button>

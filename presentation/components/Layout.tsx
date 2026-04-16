@@ -10,12 +10,7 @@ export const Layout = () => {
     const [isAnimating, setIsAnimating] = React.useState(false);
     const supportEmail = 'bajajhelp@gamil.com';
     const supportPhone = '9666845326';
-    const banners = [
-        '/login-banner.png',
-        '/login-banner.png',
-        '/login-banner.png',
-        '/login-banner.png',
-    ];
+    const banners = ['/login-banner.png', '/login-banner.png', '/login-banner.png', '/login-banner.png'];
 
     React.useEffect(() => {
         const interval = setInterval(() => {
@@ -34,7 +29,7 @@ export const Layout = () => {
 
     return (
         <div
-            className="flex min-h-screen"
+            className='flex min-h-screen'
             style={{
                 background: `
       radial-gradient(circle at 55% 25%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 50%),
@@ -43,18 +38,21 @@ export const Layout = () => {
       radial-gradient(circle at 95% 75%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 15%),
       linear-gradient(180deg, #4A8DFA 0%, #7996FF 40%,  #7996FF 100%)
     `,
-                backgroundAttachment: "fixed"
+                backgroundAttachment: 'fixed',
             }}
         >
             {/* Left Section: Functional Content */}
-            <div className='z-10 flex w-full flex-col justify-between overflow-y-auto rounded-r-[40px] overflow-hidden bg-white px-8 py-10 lg:w-[55%] xl:px-20'>
-                {/* Header Logo */}
-                <div className='flex items-center'>
-                    <img src='/logo.png' alt='Bajaj General Logo' className='h-18 w-auto object-contain' />
-                </div>
+            <div className='relative z-10 flex w-full flex-col justify-between overflow-y-auto rounded-r-[40px] overflow-hidden bg-white px-8 pt-20 pb-10 lg:w-[55%] xl:px-20'>
+                <img
+                    src='/logo.png'
+                    alt='Bajaj General Logo'
+                    className='absolute top-[16px] left-[16px] h-18 w-auto object-contain z-20'
+                />
 
                 {/* DYNAMIC CONTENT AREA */}
-                <Outlet />
+                <div className='flex flex-1 items-center justify-center'>
+                    <Outlet />
+                </div>
 
                 {/* Bottom Bar & Footer */}
                 <div className='mx-auto w-full max-w-xl'>
@@ -99,19 +97,16 @@ export const Layout = () => {
             {/* RIGHT SECTION: Marketing / Identity Section (Static) */}
             <section className='hidden lg:flex fixed right-0 w-[45%] h-screen justify-center items-center '>
                 <div className='w-[600px] px-[65px] flex flex-col items-center gap-8'>
-
                     {/* CENTERING WRAPPER */}
-                    <div className="relative  h-[85vh] flex items-center justify-center">
-
+                    <div className='relative  h-[85vh] flex items-center justify-center'>
                         {/* CARD FRAME (matches image size) */}
-                        <div className="relative w-[410px] h-full aspect-[3/4] flex items-center justify-center overflow-hidden rounded-xl">
-
+                        <div className='relative w-[410px] h-full aspect-[3/4] flex items-center justify-center overflow-hidden rounded-xl'>
                             {/* BACKGROUND */}
                             <div
-                                className="absolute h-full rounded-2xl"
+                                className='absolute h-full rounded-2xl'
                                 style={{
                                     width: '430px',
-                                    background: "linear-gradient(180deg, #005DAC 0%, #004F92 100%)"
+                                    background: 'linear-gradient(180deg, #005DAC 0%, #004F92 100%)',
                                 }}
                             />
 
@@ -119,11 +114,9 @@ export const Layout = () => {
                             <img
                                 key={`current-${activeIndex}`}
                                 src={banners[activeIndex]}
-                                className="absolute h-full w-[410px] object-contain transition-transform duration-500 ease-out"
+                                className='absolute h-full w-[410px] object-contain transition-transform duration-500 ease-out'
                                 style={{
-                                    transform: isAnimating
-                                        ? 'translateX(-100%)'
-                                        : 'translateX(0)',
+                                    transform: isAnimating ? 'translateX(-100%)' : 'translateX(0)',
                                 }}
                             />
 
@@ -131,22 +124,16 @@ export const Layout = () => {
                             <img
                                 key={`next-${nextIndex}`}
                                 src={banners[nextIndex]}
-                                className="absolute h-full w-[410px] object-contain transition-transform duration-500 ease-out"
+                                className='absolute h-full w-[410px] object-contain transition-transform duration-500 ease-out'
                                 style={{
-                                    transform: isAnimating
-                                        ? 'translateX(0)'
-                                        : 'translateX(100%)',
+                                    transform: isAnimating ? 'translateX(0)' : 'translateX(100%)',
                                 }}
                             />
-
                         </div>
-
                     </div>
                     <PaginationDots total={banners.length} activeIndex={activeIndex} />
                 </div>
             </section>
-
-
 
             {/* Application Modals */}
             <DownloadModal isOpen={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />
