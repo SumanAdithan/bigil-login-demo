@@ -12,15 +12,13 @@ export const WhatsNew: React.FC = () => {
             <img
                 src='/whats-new-illustration.png'
                 alt=''
-                className='absolute top-[65px] right-0 w-[45%] max-w-[170px] pointer-events-none z-0'
+                className='absolute top-[40px] right-0 w-[45%] max-w-[170px] pointer-events-none z-0'
             />
 
             <div className='relative z-10 flex flex-col justify-between h-full'>
                 <div className='max-w-[60%]'>
                     <h1 className='text-[#1E293B] text-xl font-medium'>What’s new</h1>
-                    <p className='text-sm text-[#475569]'>
-                        Stay updated with latest news and updates from Bajaj!
-                    </p>
+                    <p className='text-sm text-[#475569]'>Stay updated with latest news and updates from Bajaj!</p>
                 </div>
                 <div className='flex flex-col gap-4'>
                     <div className='w-full'>

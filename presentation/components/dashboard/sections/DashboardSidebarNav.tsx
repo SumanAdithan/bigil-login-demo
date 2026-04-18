@@ -30,7 +30,7 @@ export const DashboardSidebarNav = () => {
     ];
 
     return (
-        <aside className='h-[calc(100vh-64px)] overflow-y-auto z-20'>
+        <aside className='w-[90px] shrink-0 h-[calc(100vh-64px)] overflow-y-auto z-20'>
             <SidebarNavigation className='h-full'>
                 {navItems.map((item) => (
                     <SidebarNavigationItem
