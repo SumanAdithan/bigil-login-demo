@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SegmentedControl, SegmentedControlItem } from '@atlas-ds/react';
 import { ChevronLeft } from 'lucide-react';
-import { ImdLoginForm } from '../components/ImdLoginForm';
-import { MobileLoginForm } from '../components/MobileLoginForm';
+import { ImdLoginForm } from '../../components/auth/ImdLoginForm';
+import { MobileLoginForm } from '../../components/auth/MobileLoginForm';
 
 export const AgentLogin = () => {
     const navigate = useNavigate();

@@ -11,13 +11,16 @@
     },
     "dependencies": {
         "@atlas-ds/react": "file:./packages/react",
+        "@heroicons/react": "^2.2.0",
         "@hookform/resolvers": "^5.2.2",
         "@tailwindcss/vite": "^4.2.2",
         "lucide-react": "^0.476.0",
         "react": "^19.2.4",
         "react-dom": "^19.2.4",
         "react-hook-form": "^7.72.1",
+        "react-is": "^19.2.5",
         "react-router-dom": "^7.9.3",
+        "recharts": "^3.8.1",
         "tailwindcss": "^4.2.2",
         "zod": "^4.3.6"
     },

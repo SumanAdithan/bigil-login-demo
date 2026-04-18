@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button, OtpInput } from '@atlas-ds/react';
 import { ChevronLeft } from 'lucide-react';
-import { authUseCases } from '../../application/useCases/auth_use_cases';
+import { authUseCases } from '../../../application/useCases/auth_use_cases';
 
 export const VerifyOtp = () => {
     const navigate = useNavigate();

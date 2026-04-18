@@ -1,6 +1,6 @@
 import { Smartphone } from 'lucide-react';
 import { Modal, ModalContent, ModalHeader, ModalBody } from '@atlas-ds/react';
-import Icon from '../assets/Icon.png';
+import Icon from '../../assets/Icon.png';
 
 interface DownloadModalProps {
     isOpen: boolean;

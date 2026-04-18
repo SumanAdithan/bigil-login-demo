@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormField, FormLabel, FormInput, FormMessage, Button } from '@atlas-ds/react';
 import { Check } from 'lucide-react';
-import { resetPasswordSchema } from '../../domain/validations/auth_schemas';
-import type { ResetPasswordData } from '../../domain/entities/auth_entities';
-import { authUseCases } from '../../application/useCases/auth_use_cases';
+import { resetPasswordSchema } from '../../../domain/validations/auth_schemas';
+import type { ResetPasswordData } from '../../../domain/entities/auth_entities';
+import { authUseCases } from '../../../application/useCases/auth_use_cases';
 
 export const ResetPassword = () => {
     const navigate = useNavigate();

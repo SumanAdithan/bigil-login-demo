@@ -1,6 +1,8 @@
 import * as class_variance_authority_types from 'class-variance-authority/types';
 import * as React from 'react';
+import React__default from 'react';
 import { VariantProps } from 'class-variance-authority';
+import * as react_jsx_runtime from 'react/jsx-runtime';
 import { ClassValue } from 'clsx';
 
 declare const buttonVariants: (props?: ({
@@ -13,6 +15,15 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Var
     asChild?: boolean;
 }
 declare const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;
+
+declare const badgeVariants: (props?: ({
+    variant?: "solid" | "light" | null | undefined;
+    size?: "sm" | "lg" | null | undefined;
+    color?: "red" | "amber" | "lime" | "blue" | "neutral" | "brand" | "indigo" | "emerald" | "teal" | "orange" | "pink" | "violet" | "rose" | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+interface BadgeProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'>, VariantProps<typeof badgeVariants> {
+}
+declare const Badge: React.ForwardRefExoticComponent<BadgeProps & React.RefAttributes<HTMLSpanElement>>;
 
 declare const tileVariants: (props?: ({
     selected?: boolean | null | undefined;
@@ -177,6 +188,138 @@ interface PaginationDotsProps {
  */
 declare const PaginationDots: React.FC<PaginationDotsProps>;
 
+declare const tagVariants: (props?: ({
+    size?: "sm" | "md" | null | undefined;
+    shape?: "rounded" | "rectangle" | null | undefined;
+    selected?: boolean | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+interface TagProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof tagVariants> {
+    asChild?: boolean;
+    onRemove?: (e: React.MouseEvent<HTMLSpanElement>) => void;
+}
+declare const Tag: React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLButtonElement>>;
+
+interface TagGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+}
+declare const TagGroup: React.ForwardRefExoticComponent<TagGroupProps & React.RefAttributes<HTMLDivElement>>;
+
+interface SidebarNavigationProps extends React.HTMLAttributes<HTMLElement> {
+    asChild?: boolean;
+}
+declare const SidebarNavigation: React.ForwardRefExoticComponent<SidebarNavigationProps & React.RefAttributes<HTMLElement>>;
+
+declare const sidebarNavigationItemVariants: (props?: ({
+    selected?: boolean | null | undefined;
+    footer?: boolean | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+interface SidebarNavigationItemProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>, VariantProps<typeof sidebarNavigationItemVariants> {
+    asChild?: boolean;
+    icon?: React.ReactNode;
+    label?: React.ReactNode;
+    backgroundImage?: string;
+}
+declare const SidebarNavigationItem: React.ForwardRefExoticComponent<SidebarNavigationItemProps & React.RefAttributes<HTMLAnchorElement>>;
+
+interface LayoutBlockProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    dashed?: boolean;
+    cascade?: boolean;
+    direction?: 'row' | 'column';
+    grid?: 2 | 3 | 4;
+}
+interface LayoutBlockGroupProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    label?: React__default.ReactNode;
+    depth?: 1 | 2 | 3 | 4 | 5;
+}
+interface LayoutBlockItemProps extends React__default.HTMLAttributes<HTMLDivElement> {
+    depth?: 1 | 2 | 3 | 4 | 5;
+}
+interface LayoutBlockNestedProps extends React__default.HTMLAttributes<HTMLDivElement> {
+}
+interface LayoutBlockBadgeProps extends React__default.HTMLAttributes<HTMLDivElement> {
+}
+declare const LayoutBlock: React__default.ForwardRefExoticComponent<LayoutBlockProps & React__default.RefAttributes<HTMLDivElement>> & {
+    Group: React__default.ForwardRefExoticComponent<LayoutBlockGroupProps & React__default.RefAttributes<HTMLDivElement>>;
+    Item: React__default.ForwardRefExoticComponent<LayoutBlockItemProps & React__default.RefAttributes<HTMLDivElement>>;
+    Nested: React__default.ForwardRefExoticComponent<LayoutBlockNestedProps & React__default.RefAttributes<HTMLDivElement>>;
+    Badge: React__default.ForwardRefExoticComponent<LayoutBlockBadgeProps & React__default.RefAttributes<HTMLDivElement>>;
+};
+
+interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputElement> {
+    onClear?: () => void;
+    error?: boolean;
+    helperText?: string;
+    icon?: React.ReactNode;
+}
+declare const SearchBar: React.ForwardRefExoticComponent<SearchBarProps & React.RefAttributes<HTMLInputElement>>;
+
+declare const avatarLabelVariants: (props?: ({
+    variant?: "default" | "boxed" | null | undefined;
+    size?: "sm" | "md" | "lg" | "xl" | null | undefined;
+    loading?: boolean | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+interface AvatarLabelProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarLabelVariants> {
+    asChild?: boolean;
+    avatarUrl?: string;
+    text?: React.ReactNode;
+    subtext?: React.ReactNode;
+    showStatus?: boolean;
+    statusColor?: string;
+}
+declare const AvatarLabel: React.ForwardRefExoticComponent<AvatarLabelProps & React.RefAttributes<HTMLDivElement>>;
+
+interface AvatarDropdownItemProps extends React.HTMLAttributes<HTMLDivElement> {
+    children: React.ReactNode;
+}
+declare const AvatarDropdownItem: ({ className, children, ...props }: AvatarDropdownItemProps) => react_jsx_runtime.JSX.Element;
+interface AvatarDropdownProps extends React.HTMLAttributes<HTMLDivElement> {
+    trigger: React.ReactNode;
+    disabled?: boolean;
+}
+declare const AvatarDropdown: React.ForwardRefExoticComponent<AvatarDropdownProps & React.RefAttributes<HTMLDivElement>>;
+
+interface TopbarProps extends React.HTMLAttributes<HTMLElement> {
+    loading?: boolean;
+}
+declare const Topbar: React.ForwardRefExoticComponent<TopbarProps & React.RefAttributes<HTMLElement>>;
+declare const TopbarLeft: ({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) => react_jsx_runtime.JSX.Element;
+declare const TopbarCenter: ({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) => react_jsx_runtime.JSX.Element;
+declare const TopbarRight: ({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) => react_jsx_runtime.JSX.Element;
+declare const TopbarLogo: ({ className, src, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => react_jsx_runtime.JSX.Element;
+declare const TopbarDashboardButton: ({ className, children, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) => react_jsx_runtime.JSX.Element;
+declare const TopbarNotification: ({ className, hasDot, children, ...props }: React.HTMLAttributes<HTMLDivElement> & {
+    hasDot?: boolean;
+}) => react_jsx_runtime.JSX.Element;
+declare const TopbarHeaderDropdown: ({ className, userName, userId, icon, isOpen, onClick, children, ...props }: React.HTMLAttributes<HTMLDivElement> & {
+    userName: string;
+    userId: string;
+    icon?: React.ReactNode;
+    isOpen?: boolean;
+}) => react_jsx_runtime.JSX.Element;
+declare const TopbarRMCard: ({ className, title, subtitle, icon, ...props }: React.HTMLAttributes<HTMLDivElement> & {
+    title: string;
+    subtitle: string;
+    icon?: React.ReactNode;
+}) => react_jsx_runtime.JSX.Element;
+
+interface DropdownOption {
+    label: string;
+    value: string;
+    icon?: string;
+    support?: string;
+}
+interface DropdownProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+    label?: string;
+    placeholder?: string;
+    options: DropdownOption[];
+    type?: 'single' | 'multi';
+    error?: boolean;
+    hint?: string;
+    disabled?: boolean;
+    value?: string | string[];
+    onChange?: (value: string | string[]) => void;
+}
+declare const Dropdown: React.ForwardRefExoticComponent<DropdownProps & React.RefAttributes<HTMLDivElement>>;
+
 declare function cn(...inputs: ClassValue[]): string;
 
-export { Button, type ButtonProps, Card, CardContent, type CardContentProps, CardMedia, type CardMediaProps, type CardProps, FormField, FormFieldContext, type FormFieldProps, FormInput, type FormInputProps, FormLabel, type FormLabelProps, FormMessage, type FormMessageProps, Modal, ModalBody, type ModalBodyProps, ModalContent, type ModalContentProps, ModalFooter, type ModalFooterProps, ModalHeader, type ModalHeaderProps, ModalOverlay, type ModalOverlayProps, type ModalProps, OtpInput, type OtpInputProps, PaginationDots, type PaginationDotsProps, SegmentedControl, SegmentedControlContext, SegmentedControlItem, type SegmentedControlItemProps, type SegmentedControlProps, TextArea, type TextAreaProps, Tile, TileGroup, type TileGroupProps, type TileProps, buttonVariants, cardVariants, cn, tileVariants, useFormField, useTileGroup };
+export { AvatarDropdown, AvatarDropdownItem, type AvatarDropdownItemProps, type AvatarDropdownProps, AvatarLabel, type AvatarLabelProps, Badge, type BadgeProps, Button, type ButtonProps, Card, CardContent, type CardContentProps, CardMedia, type CardMediaProps, type CardProps, Dropdown, FormField, FormFieldContext, type FormFieldProps, FormInput, type FormInputProps, FormLabel, type FormLabelProps, FormMessage, type FormMessageProps, LayoutBlock, type LayoutBlockBadgeProps, type LayoutBlockGroupProps, type LayoutBlockItemProps, type LayoutBlockNestedProps, type LayoutBlockProps, Modal, ModalBody, type ModalBodyProps, ModalContent, type ModalContentProps, ModalFooter, type ModalFooterProps, ModalHeader, type ModalHeaderProps, ModalOverlay, type ModalOverlayProps, type ModalProps, OtpInput, type OtpInputProps, PaginationDots, type PaginationDotsProps, SearchBar, type SearchBarProps, SegmentedControl, SegmentedControlContext, SegmentedControlItem, type SegmentedControlItemProps, type SegmentedControlProps, SidebarNavigation, SidebarNavigationItem, type SidebarNavigationItemProps, type SidebarNavigationProps, Tag, TagGroup, type TagGroupProps, type TagProps, TextArea, type TextAreaProps, Tile, TileGroup, type TileGroupProps, type TileProps, Topbar, TopbarCenter, TopbarDashboardButton, TopbarHeaderDropdown, TopbarLeft, TopbarLogo, TopbarNotification, type TopbarProps, TopbarRMCard, TopbarRight, avatarLabelVariants, badgeVariants, buttonVariants, cardVariants, cn, sidebarNavigationItemVariants, tagVariants, tileVariants, useFormField, useTileGroup };
