@@ -36,8 +36,8 @@ export const DesignationSelect = () => {
                 className='grid w-fit grid-cols-2 gap-4'
                 value=''
                 onValueChange={(val) => {
-                    if (val === 'agent') navigate('/login/agent');
-                    if (val === 'rm') navigate('/login/rm');
+                    if (val === 'agent') navigate('/auth/agent');
+                    if (val === 'rm') navigate('/auth/rm');
                 }}
             >
                 {cards.map((card) => (

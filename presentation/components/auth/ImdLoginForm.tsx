@@ -77,7 +77,7 @@ export const ImdLoginForm = () => {
                 </div>
 
                 <div className='text-right'>
-                    <Button variant='link' type='button' onClick={() => navigate('/login/forgot-password')}>
+                    <Button variant='link' type='button' onClick={() => navigate('/auth/forgot-password')}>
                         Forgot Password
                     </Button>
                 </div>

@@ -45,7 +45,7 @@ export const VerifyOtp = () => {
         <div className='mx-auto flex w-full max-w-md flex-col'>
             {/* Back Button */}
             <button
-                onClick={() => navigate('/login/agent')}
+                onClick={() => navigate('/auth/agent')}
                 className='mb-8 flex items-center gap-1 text-sm transition-colors hover:text-gray-900 cursor-pointer'
                 style={{ color: 'var(--text-secondary)' }}
             >
@@ -86,7 +86,7 @@ export const VerifyOtp = () => {
             <div className='mt-4 mb-10 text-center text-md' style={{ color: 'var(--text-secondary)' }}>
                 Can’t login?{' '}
                 <span
-                    onClick={() => navigate('/login/help', { state: { persona: 'agent' } })}
+                    onClick={() => navigate('/auth/help', { state: { persona: 'agent' } })}
                     className='font-normal text-[#004E91] cursor-pointer'
                 >
                     Get Help

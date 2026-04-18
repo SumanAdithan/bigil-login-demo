@@ -29,7 +29,7 @@ export const ForgotPassword = () => {
         <div className='mx-auto flex w-full max-w-md flex-col'>
             {/* Back Button */}
             <button
-                onClick={() => navigate('/login/agent')}
+                onClick={() => navigate('/auth/agent')}
                 className='mb-8 flex items-center gap-1 text-sm transition-colors hover:text-gray-900 cursor-pointer'
                 style={{ color: 'var(--text-secondary)' }}
             >
@@ -61,7 +61,7 @@ export const ForgotPassword = () => {
                         Generate OTP
                     </Button>
 
-                    <Button variant='secondaryGray' fullWidth onClick={() => navigate('/login/agent')}>
+                    <Button variant='secondaryGray' fullWidth onClick={() => navigate('/auth/agent')}>
                         Back to Login
                     </Button>
                 </div>

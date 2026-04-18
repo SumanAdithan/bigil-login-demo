@@ -49,7 +49,7 @@ export const AgentLogin = () => {
             <div className='text-md text-center mt-2 mb-2' style={{ color: 'var(--text-secondary)' }}>
                 Can’t login?{' '}
                 <span
-                    onClick={() => navigate('/login/help', { state: { persona: 'agent' } })}
+                    onClick={() => navigate('/auth/help', { state: { persona: 'agent' } })}
                     className='text-[#004E91] cursor-pointer'
                 >
                     Get Help

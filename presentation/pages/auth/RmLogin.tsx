@@ -26,7 +26,7 @@ export const RmLogin = () => {
     const onSubmit = (data: RmLoginFormValues) => {
         console.log('RM Login Submitted:', data);
         // Synchronized success transition to OTP verification
-        navigate('/login/otp');
+        navigate('/auth/otp');
     };
 
     return (
@@ -77,7 +77,7 @@ export const RmLogin = () => {
                             type='button'
                             variant='link'
                             className='p-0 font-normal text-[#004E91]'
-                            onClick={() => navigate('/login/forgot-password')}
+                            onClick={() => navigate('/auth/forgot-password')}
                         >
                             Forgot password?
                         </Button>
@@ -95,7 +95,7 @@ export const RmLogin = () => {
                 Can’t login?{' '}
                 <Button
                     variant='link'
-                    onClick={() => navigate('/login/help', { state: { persona: 'rm' } })}
+                    onClick={() => navigate('/auth/help', { state: { persona: 'rm' } })}
                     className='font-normal text-[#004E91] cursor-pointer'
                 >
                     Get Help

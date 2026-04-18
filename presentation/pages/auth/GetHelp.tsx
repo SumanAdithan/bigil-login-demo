@@ -8,7 +8,7 @@ export const GetHelp = () => {
     const persona = location.state?.persona || 'agent';
     const rmPhone = '+918687518745';
 
-    const loginPath = persona === 'rm' ? '/login/rm' : '/login/agent';
+    const loginPath = persona === 'rm' ? '/auth/rm' : '/auth/agent';
 
     const renderAgentView = () => (
         <div className='space-y-4'>
