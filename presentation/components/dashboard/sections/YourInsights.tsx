@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { InformationCircleIcon } from '@heroicons/react/24/outline';
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 import { ResponsiveContainer, LineChart, CartesianGrid, XAxis, YAxis, Line } from 'recharts';

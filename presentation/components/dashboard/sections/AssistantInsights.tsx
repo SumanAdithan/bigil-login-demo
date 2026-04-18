@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Badge, SegmentedControl, SegmentedControlItem, Card, CardContent, Button } from '@atlas-ds/react';
 import { SparklesIcon } from '@heroicons/react/24/outline';
 import { ArrowUpRightIcon, ChevronRightIcon } from '@heroicons/react/24/solid';

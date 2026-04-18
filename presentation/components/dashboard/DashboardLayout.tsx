@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Import modular sections
 import { YourInsights } from './sections/YourInsights';
 import { WhatsNew } from './sections/WhatsNew';

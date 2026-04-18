@@ -1,4 +1,3 @@
-import React from 'react';
 import { Route } from 'react-router-dom';
 import { DashboardLayout } from '../components/dashboard/DashboardLayout';
 import { DashboardPage } from '../pages/dashboard/DashboardPage';
